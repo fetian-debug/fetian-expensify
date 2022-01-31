@@ -3,3 +3,4 @@ public/dist
 coverage
 .env.development
 .env.test
+.env
