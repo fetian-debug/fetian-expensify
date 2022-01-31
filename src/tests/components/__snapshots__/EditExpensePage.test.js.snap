@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render EditExpensePage 1`] = `
+exports[`Should render EditExpensePage properly 1`] = `
 <div>
   <div
     className="page-header"
@@ -21,17 +21,17 @@ exports[`should render EditExpensePage 1`] = `
     <ExpenseForm
       expense={
         Object {
-          "amount": 4500,
-          "createdAt": 345600000,
-          "description": "Credit Card",
-          "id": "3",
+          "amount": 195,
+          "createdAt": 0,
+          "description": "Gum",
+          "id": "1",
           "note": "",
         }
       }
       onSubmit={[Function]}
     />
     <button
-      className="button button--secondary"
+      className="button--secondary"
       onClick={[Function]}
     >
       Remove Expense

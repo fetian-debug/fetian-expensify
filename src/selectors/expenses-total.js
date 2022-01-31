@@ -1,5 +1,2 @@
-export default (expenses) => {
-  return expenses
-      .map((expense) => expense.amount)
-      .reduce((sum, value) => sum + value, 0);
-};
+
+export const getExpensesTotal = (expenses) => expenses.reduce((acc, { amount }) => acc + amount, 0);
