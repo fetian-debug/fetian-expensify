@@ -11,7 +11,7 @@ import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
-import Provider from './components/Provider'
+import Provider from './components/Provider';
 
 const store = configureStore();
 const jsx = ( <Provider store={store}> <AppRouter /> </Provider>);
