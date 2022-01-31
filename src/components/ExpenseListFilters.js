@@ -1,15 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
-import {
-  setTextFilter,
-  sortByDate,
-  sortByAmount,
-  setStartDate,
-  setEndDate
-} from '../actions/filters';
+import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from '../actions/filters';
 
 export class ExpenseListFilters extends React.Component {
   state = {
@@ -21,7 +13,7 @@ export class ExpenseListFilters extends React.Component {
   };
   onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }));
-  };
+  }
   onTextChange = (e) => {
     this.props.setTextFilter(e.target.value);
   };
@@ -38,10 +30,10 @@ export class ExpenseListFilters extends React.Component {
         <div className="input-group">
           <div className="input-group__item">
             <input
-              className="text-input"
               type="text"
+              className="text-input"
+              placeholder="Search expenses"
               value={this.props.filters.text}
-              placeholder="Search Expenses"
               onChange={this.onTextChange}
             />
           </div>
@@ -59,16 +51,12 @@ export class ExpenseListFilters extends React.Component {
             <DateRangePicker
               startDate={this.props.filters.startDate}
               endDate={this.props.filters.endDate}
-              startDateId="startDate" // for prop validation
-              endDateId="endDate" // for prop validation
               onDatesChange={this.onDatesChange}
               focusedInput={this.state.calendarFocused}
               onFocusChange={this.onFocusChange}
               showClearDates={true}
               numberOfMonths={1}
-              isOutsideRange={() => false} // allow selecting past days
-              showDefaultInputIcon
-              hideKeyboardShortcutsPanel
+              isOutsideRange={() => false}
             />
           </div>
         </div>
@@ -77,25 +65,16 @@ export class ExpenseListFilters extends React.Component {
   }
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   filters: state.filters
 });
 
-const mapDispatchToProps = dispatch => ({
-  setStartDate: startDate => dispatch(setStartDate(startDate)),
-  setEndDate: endDate => dispatch(setEndDate(endDate)),
-  setTextFilter: text => dispatch(setTextFilter(text)),
+const mapDispatchToProps = (dispatch) => ({
+  setTextFilter: (text) => dispatch(setTextFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
-  sortByAmount: () => dispatch(sortByAmount())
+  sortByAmount: () => dispatch(sortByAmount()),
+  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
+  setEndDate: (endDate) => dispatch(setEndDate(endDate))
 });
-
-ExpenseListFilters.propTypes = {
-  filters: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    sortBy: PropTypes.string.isRequired,
-    startDate: momentPropTypes.momentObj,
-    endDate: momentPropTypes.momentObj
-  }).isRequired
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);

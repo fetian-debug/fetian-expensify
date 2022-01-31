@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
@@ -8,25 +7,17 @@ export const PublicRoute = ({
   component: Component,
   ...rest
 }) => (
-  <Route
-    {...rest}
-    component={props => ( // props -> history(instance of createBrowserHistory())
+    <Route {...rest} component={(props) => (
       isAuthenticated ? (
         <Redirect to="/dashboard" />
       ) : (
-        <Component {...props} />
-      )
-    )}
-  />
-);
+          <Component {...props} />
+        )
+    )} />
+  );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isAuthenticated: !!state.auth.uid
 });
-
-PublicRoute.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-  component: PropTypes.element.isRequired
-};
 
 export default connect(mapStateToProps)(PublicRoute);

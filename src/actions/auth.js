@@ -1,26 +1,13 @@
-import { firebase, googleAuthProvider, facebookAuthProvider } from '../firebase/firebase';
-import { setExpenses } from './expenses';
-import handleAuthError from './handleAuthError';
+import { firebase, googleAuthProvider } from '../firebase/firebase';
 
-export const login = (uid, firstname) => ({
+export const login = (uid) => ({
   type: 'LOGIN',
-  uid,
-  firstname
+  uid
 });
 
-export const startGoogleLogin = () => {
-  // conform to the redux-thunk spec by returning a function
+export const startLogin = () => {
   return () => {
-    return firebase.auth().signInWithPopup(googleAuthProvider)
-      .catch((e) => { handleAuthError(e); });
-  };
-};
-
-export const startFacebookLogin = () => {
-  // conform to the redux-thunk spec by returning a function
-  return () => {
-    return firebase.auth().signInWithPopup(facebookAuthProvider)
-      .catch((e) => { handleAuthError(e); });
+    return firebase.auth().signInWithPopup(googleAuthProvider);
   };
 };
 
@@ -29,12 +16,7 @@ export const logout = () => ({
 });
 
 export const startLogout = () => {
-  return (dispatch) => {
-    return firebase.auth().signOut()
-      // reset the state to the initial state locally
-      // prevent a flash of the previous user's data before startSetExpenses takes place
-      .then(() => {
-        dispatch(setExpenses([]));
-      });
+  return () => {
+    return firebase.auth().signOut();
   };
 };
