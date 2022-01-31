@@ -1,8 +1,8 @@
 {
-  "name": "expensify-app",
+  "name": "expensify",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Fetian Anas",
+  "author": "fetian",
   "license": "MIT",
   "scripts": {
     "build:dev": "webpack",
