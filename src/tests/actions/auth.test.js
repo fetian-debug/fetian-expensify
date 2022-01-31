@@ -1,16 +1,23 @@
-import {login, logout} from '../../actions/auth';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import {
+    login,
+    logout
+} from '../../actions/auth';
 
-test('should return logout action object correctly', () => {
-    const action = login('123a45');
+const createMockStore = configureMockStore([thunk]);
+
+test('should generate login action object', ()=> {
+    const action = login('123');
     expect(action).toEqual({
         type: 'LOGIN',
-        uid: '123a45'
+        uid: '123'
     });
 });
 
-test('should return logout action object correctly', () => {
+test('should generate logout action object', ()=> {
     const action = logout();
     expect(action).toEqual({
-        type: 'LOGOUT',
+        type: 'LOGOUT'
     });
 });

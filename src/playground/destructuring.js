@@ -1,35 +1,50 @@
-import { database } from "firebase";
+//  Object Destructuring
 
-//
-// Object 
-//
+// const person = {
+//     name: 'Ferenc',
+//     age: 30,
+//     location: {
+//         city: 'Houston',
+//         temp: 60
+//     }
+// };
 
-const Person = {
-    name: 'Mike',
-    age: 27,
-    location: {
-        city: 'London',
-        temp: 16
-    }
-};
+// // const name = person.name;
+// // const age = person.age;
 
-const {abc,cdf} = Person;   // : reName ,  = giving default
+// const { name = "Anonymous" , age } = person;
 
-const {city, temp: temperatdeure } =  Person.location
+// console.log(`${name} is ${age}.`);
 
-console.log(`My name is ${firstName}`);
+// const { city, temp: temperature } = person.location;
 
-console.log(`temperature in ${city} is ${temperature}`)
+// if(city && temperature){
+//     console.log(`It's ${temperature} in ${city}.`);
+// }
 
+// const book = {
+//     title: "Ego is the Enemy",
+//     author: 'Ryan Holiday',
+//     publisher: {
+//         //name: 'Penguin'
+//     }
+// };
 
-//
-// Array
-//
+// const { name: publisherName = 'Self Published' } = book.publisher;
 
-const item = ['Coffee (hot)', '$2.00', '$2.50', '2.75'];
-
-const [itemName, ,meduimPrice] = item;
-
-console.log(`A meduim ${itemName} costs ${meduimPrice}`);
+// console.log(publisherName);
 
 
+// Array Destructuring
+
+const address = ['1710 West T C Jester', 'Houston', 'Texas', '77008' ];
+
+const [ , city, state] = address;
+
+console.log(`You are in ${city} ${state}.`);
+
+const item = ['coffee (hot)', '$2.00', "$2.50", "$2.75" ];
+
+const [name, , mediumPrice] = item;
+
+console.log(`A medium ${name} cost ${mediumPrice}.`);

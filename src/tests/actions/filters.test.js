@@ -1,52 +1,50 @@
-import {setupTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate} from '../../actions/filters';
+import { setStartDate, setEndDate, sortByAmount, sortByDate, setTextFilter } from '../../actions/filters';
 import moment from 'moment';
 
-test('should setup textfilter action object passed values', () => {
-    const action = setupTextFilter('rent');
-    expect(action).toEqual({
-        type: 'SETUP_TEXT_FILTER',
-        text: 'rent'
-    });
-});
-
-test('should setup textfilter action object default values', () => {
-    const action = setupTextFilter();
-    expect(action).toEqual({
-        type: "SETUP_TEXT_FILTER",
-        text: ''                    
-    });
-});
-
-test('should setup startDate filter action object', () => {
+test("should generate set start date action object", () => {
     const action = setStartDate(moment(0));
     expect(action).toEqual({
-        type: 'SET_START_DATE',
-        date: moment(0)
+        type: "SET_START_DATE",
+        startDate: moment(0)
     });
 });
 
-test('should setup endDate filter action object', () => {
+test("should generate set end date action object", () => {
     const action = setEndDate(moment(0));
     expect(action).toEqual({
-        type: 'SET_END_DATE',
-        date: moment(0)
+        type: "SET_END_DATE",
+        endDate: moment(0)
     });
 });
 
-test('should setup sortByDate filter action object', () => {
-    const action = sortByDate();
-    expect(action).toEqual({
-        type: 'SORT_BY_DATE'
-    });
-});
-
-test('should setup sortByAmount filter action object', () => {
+test("should generate sort by amount action object", () => {
     const action = sortByAmount();
     expect(action).toEqual({
-        type: 'SORT_BY_AMOUNT'
+        type: "SORT_BY_AMOUNT",
+        sortBy: 'amount'
     });
 });
 
+test("should generate sort by date action object", () => {
+    const action = sortByDate();
+    expect(action).toEqual({
+        type: "SORT_BY_DATE",
+        sortBy: 'date'
+    });
+});
 
+test("should generate set text filter default action object", () => {
+    const action = setTextFilter();
+    expect(action).toEqual({
+        type: "SET_TEXT_FILTER",
+        text: ""
+    });
+});
 
-
+test("should generate set text filter with various data action object", () => {
+    const action = setTextFilter("Water bill");
+    expect(action).toEqual({
+        type: "SET_TEXT_FILTER",
+        text: "Water bill"
+    });
+});

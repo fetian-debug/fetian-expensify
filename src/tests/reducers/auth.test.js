@@ -1,20 +1,20 @@
 import authReducer from '../../reducers/auth';
 
-
-test('should setup default auth state', () => {
-    const state = authReducer(undefined, {type: '@@INT'});
-    expect(state).toEqual({});
-});
-
-
-test('should setup auth state with uid', () => {
-    const state= authReducer(undefined, {
+test('should set uid for login', () => {
+    const action = {
         type: 'LOGIN',
-        uid: '123!@#asd'});
-    expect(state).toEqual({uid: '123!@#asd'});
+        uid: '123'
+    }
+
+    const state = authReducer({}, action);
+    expect(state.uid).toBe(action.uid);
 });
 
-test('should setup auth state with nothing', () => {
-    const state = authReducer({uid: '123!@#asd'}, {type: 'LOGOUT'});
+test('should clear uid for logout', () => {
+    const action = {
+        type: 'LOGOUT',
+    }
+
+    const state = authReducer({ uid: '123'}, action);
     expect(state).toEqual({});
 });

@@ -1,14 +1,14 @@
+
 .button {
     background: $blue;
-    border: none; //remove the grey border
+    border: none;
     color: white;
-    display: inline-block; //vertical margin and padding taken into effect
+    display: inline-block;
     font-size: $font-size-large;
     font-weight: 300;
     line-height: 1;
     padding: $s-size;
     text-decoration: none;
-   
 }
 
 .button--link {
