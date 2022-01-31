@@ -14,7 +14,11 @@ import LoadingPage from './components/LoadingPage';
 import Provider from './components/Provider';
 
 const store = configureStore();
-const jsx = ( <Provider store={store}> <AppRouter /> </Provider>);
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+)
 
 let hasRendered = false;
 
