@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExitExpensePage #Snapshots Should render EditExpensePage correctly 1`] = `
+exports[`should render ExpenseEditPage correctly 1`] = `
 <div>
   <div
     className="page-header"
@@ -21,11 +21,11 @@ exports[`ExitExpensePage #Snapshots Should render EditExpensePage correctly 1`] 
     <ExpenseForm
       expense={
         Object {
-          "amount": 4500,
+          "amount": 75000,
           "createdAt": 345600000,
-          "description": "Credit Card",
-          "id": "3",
-          "note": "test note",
+          "description": "rent",
+          "id": "2",
+          "note": "",
         }
       }
       onSubmit={[Function]}

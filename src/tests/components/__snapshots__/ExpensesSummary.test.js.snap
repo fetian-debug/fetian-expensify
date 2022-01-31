@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExpensesSummary #Snapshots Should correctly render ExpensesSummary with 1 expense 1`] = `
+exports[`should render ExpensesSummary correctly 1`] = `
 <div
   className="page-header"
 >
@@ -12,13 +12,11 @@ exports[`ExpensesSummary #Snapshots Should correctly render ExpensesSummary with
     >
       Viewing 
       <span>
-        1
+        3
       </span>
-       
-      expense
-       totalling 
+       Expenses totaling 
       <span>
-        $2.35
+        $1,665.00
       </span>
     </h1>
     <div
@@ -26,41 +24,7 @@ exports[`ExpensesSummary #Snapshots Should correctly render ExpensesSummary with
     >
       <Link
         className="button"
-        to="/create"
-      >
-        Add Expense
-      </Link>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ExpensesSummary #Snapshots Should correctly render ExpensesSummary with multiple expenses 1`] = `
-<div
-  className="page-header"
->
-  <div
-    className="content-container"
-  >
-    <h1
-      className="page-header__title"
-    >
-      Viewing 
-      <span>
-        23
-      </span>
-       
-      expenses
-       totalling 
-      <span>
-        $23,521,314.23
-      </span>
-    </h1>
-    <div
-      className="page-header__actions"
-    >
-      <Link
-        className="button"
+        replace={false}
         to="/create"
       >
         Add Expense

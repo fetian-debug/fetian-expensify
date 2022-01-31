@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoadingPage #Snapshots Should render LoadingPage correctly 1`] = `
+exports[`should render LoadingPage component correctly 1`] = `
 <div
   className="loader"
 >

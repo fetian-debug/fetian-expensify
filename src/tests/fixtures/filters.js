@@ -1,20 +1,16 @@
-import moment from 'moment'
+import moment from 'moment';
+export default  [
+    {
+        text: '',
+        sortBy: 'date',
+        startDate: undefined,
+        endDate: undefined 
 
-const defaultFilters = {
-  text: '',
-  sortBy: 'date',
-  startDate: undefined,
-  endDate: undefined
-}
-
-const altfilters = {
-  text: 'bills',
-  sortBy: 'amount',
-  startDate: moment(0),
-  endDate: moment(0).add(3, 'days')
-}
-
-export {
-  defaultFilters,
-  altfilters
-}
+    },
+    {
+        text: 'rent',
+        sortBy: 'amount',
+        startDate: moment().startOf('month'),
+        endDate: moment().endOf('month')
+    }
+];
