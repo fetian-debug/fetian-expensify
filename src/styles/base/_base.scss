@@ -1,25 +1,26 @@
-*{
-    box-sizing: border-box;
-}
-html{
-    font-size: 50%;
+*, *::after, *::before {
+  box-sizing: border-box;
 }
 
-body{
-    color:$dark-grey;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: $m-size;
-    line-height: 1.6;
+html {
+  font-size: 62.5%; // makes 1rem = 10px (original: 1rem = 16px)
 }
 
-button{
-    cursor: pointer;
+body {
+  color: $dark-grey;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
+  line-height: 1.6;
 }
 
-button:disabled{
+button {
+  cursor: pointer;
+
+  &:disabled {
     cursor: default;
+  }
 }
 
-.is-active{
-    font-weight: bold;
+:focus {
+  outline: 0;
 }
