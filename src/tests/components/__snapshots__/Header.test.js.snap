@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render Header correctly 1`] = `
+exports[`should render header correctly 1`] = `
 <header
   className="header"
 >
@@ -16,8 +16,9 @@ exports[`should render Header correctly 1`] = `
         to="/dashboard"
       >
         <h1>
-          Budget App
+          Expensify
         </h1>
+         
       </Link>
       <button
         className="button button--link"
