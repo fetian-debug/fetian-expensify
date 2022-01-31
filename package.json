@@ -2,7 +2,6 @@
   "name": "expensify",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/canyener/expensify.git",
   "author": "Fetian Anas",
   "license": "MIT",
   "scripts": {
