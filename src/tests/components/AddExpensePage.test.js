@@ -1,22 +1,41 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { AddExpensePage } from '../../components/AddExpensePage';
-import expenses from '../fixtures/expenses';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-let addExpense, history, wrapper;
+import { AddExpensePage } from '../../components/AddExpensePage'
+import expenses from '../fixtures/expenses'
+
+let startAddExpenseSpy, historySpy, wrapper
 
 beforeEach(() => {
-  addExpense = jest.fn();
-  history = { push: jest.fn() };
-  wrapper = shallow(<AddExpensePage addExpense={addExpense} history={history} />);
-});
+  startAddExpenseSpy = jest.fn()
+  historySpy = { push: jest.fn() }
+  wrapper = shallow(
+    <AddExpensePage 
+      startAddExpense={startAddExpenseSpy} 
+      history={historySpy} 
+    />
+  )
+})
 
-test('should render AddExpensePage correctly', () => {
-  expect(wrapper).toMatchSnapshot();
-});
+describe('AddExpensePage', () => {
+  describe('#Snapshots', () => {
+    test('Should render AddExpensePage correctly', () => {
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
 
-test('should handle onSubmit', () => {
-  wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
-  expect(history.push).toHaveBeenLastCalledWith('/');
-  expect(addExpense).toHaveBeenLastCalledWith(expenses[1]);
-});
+  describe('#Functionality', () => {
+    test('Should submit correct expense on onSubmit', () => {
+      wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1])
+      expect(startAddExpenseSpy).toHaveBeenLastCalledWith(expenses[1])
+    })
+    
+    test('Should redirect to / after submitting data', () => {
+      wrapper.find('ExpenseForm').prop('onSubmit')(expenses[0])
+      expect(historySpy.push).toHaveBeenLastCalledWith('/')
+    }) 
+  })
+})
+
+
+

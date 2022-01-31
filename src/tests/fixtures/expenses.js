@@ -3,7 +3,7 @@ import moment from 'moment'
 export default [{
   id: '1',
   description: 'Gum',
-  note: '',
+  note: 'Test note for gum',
   amount: 195,
   createdAt: 0
 }, {
@@ -15,7 +15,7 @@ export default [{
 }, {
   id: '3',
   description: 'Credit Card',
-  note: '',
+  note: 'test note',
   amount: 4500,
   createdAt: moment(0).add(4, 'days').valueOf()
-}];
+}]
