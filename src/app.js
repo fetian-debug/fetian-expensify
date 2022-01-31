@@ -13,13 +13,10 @@ import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
 
 const store = configureStore();
-const jsx = (
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>
-);
+const jsx = ( <Provider store={store}> <AppRouter /> <Provider>);
 
 let hasRendered = false;
+
 const renderApp = () => {
   if (!hasRendered) {
     ReactDOM.render(jsx, document.getElementById('app'));
