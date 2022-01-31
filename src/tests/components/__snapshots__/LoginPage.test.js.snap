@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render LoginPage correctly 1`] = `
+exports[`LoginPage #Snapshots Should render LoginPage correctly 1`] = `
 <div
   className="box-layout"
 >
@@ -10,13 +10,14 @@ exports[`should render LoginPage correctly 1`] = `
     <h1
       className="box-layout__title"
     >
-      Expensiy
+      Expensify
     </h1>
     <p>
-      It's time to get your expenses under control
+      It's time to get your expenses under control.
     </p>
     <button
       className="button"
+      onClick={[Function]}
     >
       Login with Google
     </button>

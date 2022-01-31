@@ -1,16 +1,22 @@
-import {login, logout} from '../../actions/auth';
+import { login, logout } from '../../actions/auth'
 
-test('should return logout action object correctly', () => {
-    const action = login('123a45');
-    expect(action).toEqual({
+describe('auth actions', () => {
+  describe('#LOGIN', () => {
+    test('Should generate login action object', () => {
+      const actualAction = login('1234qwe')
+
+      expect(actualAction).toEqual({
         type: 'LOGIN',
-        uid: '123a45'
-    });
-});
+        uid: '1234qwe'
+      }) 
+    })
+  })
 
-test('should return logout action object correctly', () => {
-    const action = logout();
-    expect(action).toEqual({
-        type: 'LOGOUT',
-    });
-});
+  describe('#LOGOUT', () => {
+    test('Should generate logout action object', () => {
+      const actualAction = logout()
+      
+      expect(actualAction).toEqual({ type: 'LOGOUT' })
+    })
+  })
+})

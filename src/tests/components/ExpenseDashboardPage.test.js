@@ -1,8 +1,14 @@
-import React from 'react';
-import {shallow} from 'enzyme';
-import ExpenseDashboardPage from '../../components/ExpenseDashboardPage';
+import React from 'react'
+import { shallow } from 'enzyme'
 
-test('should render ExpenseDashboardPage correctly', () => {
-    const wrapper = shallow(<ExpenseDashboardPage />);
-    expect(wrapper).toMatchSnapshot();
-});
+import ExpenseDashboardPage from '../../components/ExpenseDashboardPage'
+
+describe('ExpenseDashboardPage', () => {
+  describe('#Snapshots', () => {
+    test('Should render ExpenseDashboard correctly', () => {
+      const wrapper = shallow(<ExpenseDashboardPage />)
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+})
+

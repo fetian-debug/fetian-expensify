@@ -1,61 +1,71 @@
-import getVisibleExpenses from '../../selectors/expenses';
-import expenses from '../fixtures/expenses';
-import moment from 'moment';
+import moment from 'moment'
 
-test('should filter by text value', () => {
-    const filters = {
-        text: 't',
-        sortBy: 'date', 
+import selectExpenses from '../../selectors/expenses'
+import expenses from '../fixtures/expenses'
+
+describe('expenses Selector', () => {
+  describe('#Filtering', () => {
+    test('Should filter by text value', () => {
+      const filters = {
+        text: 'e',
+        sortBy: 'date',
         startDate: undefined,
         endDate: undefined
-    };
-    const result = getVisibleExpenses(expenses,filters); // here we need to call it with correct data, so we need expeses array
-    expect(result).toEqual([ expenses[1], expenses[2] ]);
-});
-
-test('should filter by startDate value', () => {
-    const filters = {
+      }
+      const actualResult = selectExpenses(expenses, filters)
+      expect(actualResult).toEqual([expenses[2], expenses[1]])
+    })
+    
+    test('Should filter by startDate', () => {
+      const filters = {
+        text: '',
+        sortBy: 'date',
         startDate: moment(0),
-        text: '',
-        sortBy: 'date',
         endDate: undefined
-    };
-    const result = getVisibleExpenses(expenses,filters);
-    expect(result).toEqual([expenses[1], expenses[0]]);
-});
-
-test('should filter by endDate value', () => {
-    const filters = {
-        endDate: moment(0).subtract('2', 'days'),
+      }
+    
+      const actualResult = selectExpenses(expenses, filters)
+      expect(actualResult).toEqual([expenses[2], expenses[0]])
+    })
+    
+    test('Should filter by endDate', () => {
+      const filters = {
+        text: '',
+        sortBy: 'date',
         startDate: undefined,
+        endDate: moment(0).add(2, 'days')
+      }
+    
+      const actualResult = selectExpenses(expenses, filters)
+      expect(actualResult).toEqual([expenses[0], expenses[1]])
+    })
+  })
+
+  describe('#Sorting', () => {
+    test('Should sort by date', () => {
+      const filters = {
         text: '',
         sortBy: 'date',
-    };
-    const result = getVisibleExpenses(expenses,filters);
-    expect(result).toEqual([expenses[2]]);
-});
-
-
-test('should filter sort by date', () => {
-    const filters = {
-        sortBy: 'date',
-        text: '',
         startDate: undefined,
         endDate: undefined
-    };
-
-    const result = getVisibleExpenses(expenses,filters);
-    expect(result).toEqual([expenses[1], expenses[0], expenses[2]]);
-});
-
-test('should filter sort by amount', () => {
-    const filters = {
+      }
+    
+      const actualResult = selectExpenses(expenses, filters)
+      expect(actualResult).toEqual([expenses[2], expenses[0], expenses[1]])
+    })
+    
+    test('Should sort by amount', () => {
+      const filters = {
+        text: '',
         sortBy: 'amount',
-        text: '',
         startDate: undefined,
         endDate: undefined
-    };
+      }
+    
+      const actualResult = selectExpenses(expenses, filters)
+      expect(actualResult).toEqual([expenses[1], expenses[2], expenses[0]])
+    })
+  })
+})
 
-    const result = getVisibleExpenses(expenses,filters);
-    expect(result).toEqual([expenses[2], expenses[1], expenses[0]]);
-});
+

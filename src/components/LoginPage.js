@@ -1,19 +1,20 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { startLogin } from '../actions/auth';
+import React from 'react'
+import { connect } from 'react-redux'
 
-export const LoginPage =  (props) => (
-    <div className="box-layout">
-     <div className="box-layout__box">
-      <h1 className="box-layout__title">Expensiy</h1>
-      <p>It's time to get your expenses under control</p>
-      <button className="button" onClick={props.startLogin}>Login with Google</button>
-     </div>
-    </div>
-);
+import { startLogin } from '../actions/auth'
 
-const mapdispatchToProps = (dispatch) => ({
-    startLogin: () => dispatch(startLogin())
-});
+export const LoginPage = ({ startLogin }) => (
+  <div className="box-layout">
+  <div className="box-layout__box">
+    <h1 className="box-layout__title">Expensify</h1>
+    <p>It's time to get your expenses under control.</p>
+    <button className="button" onClick={startLogin}>Login with Google</button>
+  </div>
+  </div>
+)
 
-export default connect(undefined, mapdispatchToProps) (LoginPage)
+const mapDispatchToProps = (dispatch) => ({
+  startLogin: () => dispatch(startLogin())
+})
+
+export default connect(undefined, mapDispatchToProps)(LoginPage)

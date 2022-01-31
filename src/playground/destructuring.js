@@ -1,35 +1,54 @@
-import { database } from "firebase";
 
 //
-// Object 
+// OBJECT DESTRUCTURING
 //
 
-const Person = {
-    name: 'Mike',
-    age: 27,
-    location: {
-        city: 'London',
-        temp: 16
-    }
-};
+// const person = {
+//   name: 'Can',
+//   age: 35,
+//   location: {
+//     city: 'Istanbul',
+//     temp: 8
+//   }
+// }
 
-const {abc,cdf} = Person;   // : reName ,  = giving default
+// const { name: firstName = 'Anonymous', age } = person
 
-const {city, temp: temperatdeure } =  Person.location
+// console.log(`${firstName} is ${age}`)
 
-console.log(`My name is ${firstName}`);
+// const { city, temp: temperature } = person.location
 
-console.log(`temperature in ${city} is ${temperature}`)
+// if (city && temperature) {
+//   console.log(`It's ${temperature} in ${city}.`)
+// }
+
+// const book = {
+//   title: 'Ego is the Enemy',
+//   author: 'Ryan Holiday',
+//   publisher: {
+//     name: 'Penguin'
+//   }
+// }
+
+// const { name: publisherName = 'Self-Published' } = book.publisher
+ 
+// console.log(publisherName)
 
 
 //
-// Array
+// ARRAY DESTRUCTURING
 //
 
-const item = ['Coffee (hot)', '$2.00', '$2.50', '2.75'];
+const address =['1299 S Juniper Street', 'Philadelphia', 'Pennsylvania', '19147']
+//const address =[]
 
-const [itemName, ,meduimPrice] = item;
+//const [ street, city, state, zip ] = address
+const [, city, state = 'Default State'] = address
 
-console.log(`A meduim ${itemName} costs ${meduimPrice}`);
+console.log(`You are in ${city} ${state}`)
 
+const item = ['Coffee (hot)', '$2.00', '$2.50', '$2.75']
 
+const [itemName, , mediumPrice] = item
+
+console.log(`A medium ${itemName} costs ${mediumPrice}`)

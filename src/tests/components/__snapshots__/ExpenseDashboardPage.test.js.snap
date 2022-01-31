@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseDashboardPage correctly 1`] = `
+exports[`ExpenseDashboardPage #Snapshots Should render ExpenseDashboard correctly 1`] = `
 <div>
-  <Connect(ExpenseSummary) />
+  <Connect(ExpensesSummary) />
   <Connect(ExpenseListFilters) />
   <Connect(ExpenseList) />
 </div>
