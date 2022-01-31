@@ -1,9 +1,6 @@
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    // resolve({
-    //   name: 'Can',
-    //   age: 35
-    // })
+    
     reject('Something went wrong!')
   }, 1500);
 })

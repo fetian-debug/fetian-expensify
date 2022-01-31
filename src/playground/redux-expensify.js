@@ -193,12 +193,12 @@ const demoState = {
 }
 
 // const user = {
-//   name: 'Can',
-//   age: 11
+//   name: 'fetian',
+//   age: 22
 // }
 
 // console.log({
 //   ...user,
 //   location: 'Istanbul',
-//   age: 22 //overrides user age
+//   age: 23 //overrides user age
 // })
