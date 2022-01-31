@@ -1,12 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NotFoundPage #Snapshots Should render NotFoundPage correctly 1`] = `
+exports[`should render NotFoundPage correctly 1`] = `
 <div>
-  404! - 
-  <Link
-    to="/"
+  <Connect(Header) />
+  <div
+    className="page-header"
   >
-    Go Home
-  </Link>
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+        404 Error!
+      </h1>
+    </div>
+  </div>
+  <div
+    className="content-container"
+  >
+    <img
+      className="not-found"
+      src="\\\\images\\\\404rickmorty.png"
+    />
+  </div>
 </div>
 `;

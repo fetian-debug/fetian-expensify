@@ -1,19 +1,13 @@
-import React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react';
+import { shallow } from 'enzyme';
+import { ExpensesSummary } from '../../components/ExpensesSummary';
 
-import { ExpensesSummary } from '../../components/ExpensesSummary'
+test('should correctly render ExpensesSummary with 1 expense', () => {
+  const wrapper = shallow(<ExpensesSummary expenseCount={1} expensesTotal={235} />);
+  expect(wrapper).toMatchSnapshot();
+});
 
-describe('ExpensesSummary', () => {
-  describe('#Snapshots', () => {
-    test('Should correctly render ExpensesSummary with 1 expense', () => {
-      const wrapper = shallow(<ExpensesSummary expenseCount={1} expensesTotal={235} />)
-      expect(wrapper).toMatchSnapshot()
-    })
-
-    test('Should correctly render ExpensesSummary with multiple expenses', () => {
-      const wrapper = shallow(<ExpensesSummary expenseCount={23} expensesTotal={2352131423} />)
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
-})
-  
+test('should correctly render ExpensesSummary with multiple expenses', () => {
+  const wrapper = shallow(<ExpensesSummary expenseCount={23} expensesTotal={23512340987} />);
+  expect(wrapper).toMatchSnapshot();
+});

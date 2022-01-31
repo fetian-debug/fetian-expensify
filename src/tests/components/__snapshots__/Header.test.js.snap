@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header #Snapshots Should render Header correctly 1`] = `
+exports[`should render Header correctly 1`] = `
 <header
   className="header"
 >
@@ -12,6 +12,7 @@ exports[`Header #Snapshots Should render Header correctly 1`] = `
     >
       <Link
         className="header__title"
+        replace={false}
         to="/dashboard"
       >
         <h1>
@@ -19,7 +20,7 @@ exports[`Header #Snapshots Should render Header correctly 1`] = `
         </h1>
       </Link>
       <button
-        className="button button--link"
+        className="button button__link"
         onClick={[Function]}
       >
         Logout

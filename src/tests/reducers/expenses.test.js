@@ -1,105 +1,76 @@
-import expensesReducer from '../../reducers/expenses'
-import expenses from '../fixtures/expenses'
+import expensesReducer from '../../reducers/expenses';
+import expenses from '../fixtures/expenses';
 
-describe('expenses reducer', () => {
-  describe('#Initialize', () => {
-    test('Should set default state', () => {
-      const state = expensesReducer(undefined, { type : '@@INIT' })
-      expect(state).toEqual([])
-    })
-  })
+test('should set default state', () => {
+  const state = expensesReducer(undefined, { type: '@@INIT' });
+  expect(state).toEqual([]);
+});
 
-  describe('#Remove Expense', () => {
-    test('Should remove expense by id', () => {
-      const action = {
-        type: 'REMOVE_EXPENSE',
-        id: expenses[1].id // 2
-      }
-    
-      const state = expensesReducer(expenses, action)
-      expect(state).toEqual([expenses[0], expenses[2]])
-    })
-    
-    test('Should NOT remove expense if id not found', () => {
-      const action = {
-        type: 'REMOVE_EXPENSE',
-        id: '-99'
-      }
-    
-      const state = expensesReducer(expenses, action)
-      expect(state).toEqual(expenses)
-    })
-  })
+test('should remove expense by id', () => {
+  const action = {
+    type: 'REMOVE_EXPENSE',
+    id: expenses[1].id
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual([expenses[0], expenses[2]]);
+});
 
-  describe('#Add Expense', () => {
-    test('Should add an expense', () => {
-      const expense = {
-        id: '4',
-        description: 'test expense 4',
-        note: '',
-        amount: 195,
-        createdAt: 0
-      }
-    
-      const action = {
-        type: 'ADD_EXPENSE',
-        expense
-      }
-      const state = expensesReducer(expenses, action)
-      expect(state).toEqual([...expenses, expense])
-    })
-  })
+test('should not remove expenses if id not found', () => {
+  const action = {
+    type: 'REMOVE_EXPENSE',
+    id: '-1'
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual(expenses);
+});
 
-  describe('#Edit Expense', () => {
-    test('Should edit expense', () => {
-      const updates = {
-        description: 'updated expense description',
-        note: 'updated expense note',
-        amount: 111,
-        createdAt: 1000
-      }
-      const action = {
-        type: 'EDIT_EXPENSE',
-        id: expenses[1].id, //2
-        updates
-      }
-      
-      const state = expensesReducer(expenses, action)
-      expect(state[1]).toEqual({...updates, id: '2' })
-    })
-    
-    test('Should NOT edit expense if id not found', () => {
-      const updates = {
-        description: 'updated expense description'
-      }
-      
-      const action = {
-        type: 'EDIT_EXPENSE',
-        id: '-99',
-        updates
-      }
-    
-      const state = expensesReducer(expenses, action)
-      expect(state).toEqual(expenses)
-    })
-  })
+test('should add an expense', () => {
+  const expense = {
+    id: '109',
+    description: 'Laptop',
+    note: '',
+    createdAt: 20000,
+    amount: 29500
+  };
+  const action = {
+    type: 'ADD_EXPENSE',
+    expense
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual([...expenses, expense]);
+});
 
-  describe('#Fetch Expenses', () => {
-    test('Should set expenses', () => {
-      const action = {
-        type: 'SET_EXPENSES',
-        expenses: [expenses[1]]
-      }
-    
-      const state = expensesReducer(expenses, action)
-      expect(state).toEqual([expenses[1]])
-    })
-  })
-})
+test('should edit an expense', () => {
+  const amount = 122000;
+  const action = {
+    type: 'EDIT_EXPENSE',
+    id: expenses[1].id,
+    updates: {
+      amount
+    }
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state[1].amount).toBe(amount);
+});
 
+test('should not edit an expense if id not found', () => {
+  const amount = 122000;
+  const action = {
+    type: 'EDIT_EXPENSE',
+    id: '-1',
+    updates: {
+      amount
+    }
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual(expenses);
+});
 
-
-
-
-
-
+test('should set expenses', () => {
+  const action = {
+    type: 'SET_EXPENSES',
+    expenses: [expenses[1]]
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual([expenses[1]]);
+});
